@@ -6,7 +6,7 @@
 !function($){
 var defaults, tick, start;
 defaults = {
-  interval: 100
+  interval: 10
 };
 tick = function(iVars){
   if (iVars.test()) {
