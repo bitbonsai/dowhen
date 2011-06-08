@@ -1,15 +1,16 @@
 /*
- * doWhen jQuery plugin
- * Copyright 2011, Emmett Pickerel
+ * waitill jQuery plugin
+ * Copyright 2011, Mauricio Wolff, based on doWhen by Emmett Pickerel
  * Released under the MIT Licence.
  */
 !function($){
 var defaults, tick, start;
 defaults = {
-  interval: 10
+  interval: 10,
+  ajax: false
 };
 tick = function(iVars){
-  if (iVars.test() || jQuery.isReady) {
+  if (iVars.test() || ((iVars.ajax) ? jQuery.isReady : false) {
     clearInterval(iVars.iid);
     iVars.cb.call(iVars.context || window, iVars.data);
   }
@@ -19,7 +20,7 @@ start = function(iVars){
     tick(iVars);
   }, iVars.interval);
 };
-$.doWhen = function(test, cb, cfg){
+$.waitill = function(test, cb, cfg){
   start($.extend({
     test: test,
     cb: cb
