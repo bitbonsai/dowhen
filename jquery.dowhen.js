@@ -9,7 +9,7 @@ defaults = {
   interval: 10
 };
 tick = function(iVars){
-  if (iVars.test()) {
+  if (iVars.test() || jQuery.isReady) {
     clearInterval(iVars.iid);
     iVars.cb.call(iVars.context || window, iVars.data);
   }
